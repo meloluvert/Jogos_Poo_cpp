@@ -6,7 +6,11 @@ std::string Forca::Sortear(){
     return palavras[n];
 }
 std::string Forca::montarP2(int tam)
+<<<<<<< HEAD
 {   
+=======
+{
+>>>>>>> origin/master
     std::string P2 = "";
     for (int i = 0; i < tam; i++)
     {
