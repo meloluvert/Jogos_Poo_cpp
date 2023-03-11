@@ -16,8 +16,7 @@ int main()
     srand(time(NULL));
 
     /*Universais*/
-    char L;
-    int jogadas = 0;
+    
 
     Velha V;
     char v[3][3];
