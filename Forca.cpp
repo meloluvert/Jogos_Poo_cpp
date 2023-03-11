@@ -1,12 +1,13 @@
 #include "Forca.h"
 #include <cstdlib>
 
-std::string Forca::Sortear(){
+std::string Forca::Sortear()
+{
     int n = rand() % TAM;
     return palavras[n];
 }
 std::string Forca::montarP2(int tam)
-{   
+{
     std::string P2 = "";
     for (int i = 0; i < tam; i++)
     {
@@ -17,11 +18,12 @@ std::string Forca::montarP2(int tam)
 void Forca::mostra(std::string P2, std::string letras, int jogadas)
 {
     system("clear");
+    std::cout<<"Você pode errar mais "<<6-jogadas<<"x"<<std::endl;
     std::cout << "Palavra gerada:" << P2 << std::endl;
     std::cout << "Letras informadas:" << letras << std::endl;
-    std::cout << "Jogadas efetuadas: " << jogadas << std::endl;
 }
-std::string Forca::AchouLetra(std::string P1, std::string P2, char L, bool *achei){
+std::string Forca::AchouLetra(std::string P1, std::string P2, char L, bool *achei)
+{
     *achei = false;
     for (int i = 0; i < P1.length(); i++)
     {
