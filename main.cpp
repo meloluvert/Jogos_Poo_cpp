@@ -1,13 +1,8 @@
-<<<<<<< HEAD
-//g++ -std=c++11 -fdiagnostics-color=always -g main.cpp Forca.cpp -o jogo_da_forca
 
-#include "Forca.h"
-=======
 //g++ -std=c++11 -fdiagnostics-color=always -g main.cpp Forca.cpp Velha.cpp -o jogo_da_forca
 
 #include "Forca.h"
 #include "Velha.h"
->>>>>>> origin/master
 #include <ctime>
 using namespace std;
 
@@ -15,14 +10,9 @@ int main()
 {
     Forca F;
     string p1, p2, letras;
-<<<<<<< HEAD
     char L;
     bool achei, acertou;
     int op, jogadas = 0;
-    srand(time(NULL));
-=======
-    bool achei, acertou;
-    int op;
     srand(time(NULL));
 
     /*Universais*/
@@ -34,7 +24,6 @@ int main()
     bool j1, j2;
     int i, j;
 
->>>>>>> origin/master
     do
     {
         system("clear");
@@ -68,11 +57,8 @@ int main()
                 {
                     acertou = true;
                 }
-<<<<<<< HEAD
-            } while ((jogadas < 6 && !acertou));
-=======
+
             } while (jogadas < 6 && !acertou);
->>>>>>> origin/master
             if (acertou)
             {
                 cout << "Parabéns";
@@ -82,15 +68,7 @@ int main()
                 cout << "Perdeu, a palavra era '" << p1 << "'" << endl;
             }
             break;
-<<<<<<< HEAD
-        case 3:
-            cout<<"tchau";    
-        default:
-            cout<<"opção inválida";
-            break;
-        }
-        cin.ignore().get(); //vai pausar o jogo até continuarmos
-=======
+
 
         case 2:
 
@@ -161,7 +139,6 @@ int main()
             cout<<"opção inválida";
             break;
         } //vai pausar o jogo até continuarmos
->>>>>>> origin/master
     }while(op!=3);
     return 0;
 }
