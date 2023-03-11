@@ -21,9 +21,9 @@ Como Jogar?
     <li>Abra o terminal entre na pasta </li>
     <li>Use este Comando:
         <br>
-  <code>g++ main.cpp Forca.cpp Velha.cpp -o Jogos_C++_POO</code>
-    </li>
 
+    </li>
+  <code>g++ main.cpp Forca.cpp Velha.cpp -o Jogos_C++_POO</code>
 </ol>
 Você criou um executável, agora é só escrever no terminal:
 
