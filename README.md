@@ -11,7 +11,7 @@
 Nesse repositório, há 2 jogos em POO, no C++: <br>
 <ul>
 <li>Jogo da Velha</li>
-<li> Jogo da forca </li>
+<li> Jogo da Forca </li>
 </ul>
 Como Jogar? 
 
@@ -19,18 +19,14 @@ Como Jogar?
     <li>Baixe o arquivo .zip</li>
     <li>Descompacte</li>
     <li>Abra o terminal entre na pasta </li>
-    <li>Use este Comando:
-        <br>
-
-    </li>
-  <code>g++ main.cpp Forca.cpp Velha.cpp -o Jogos_C++_POO</code>
+    <li>Use este Comando:</li>
+  
 </ol>
-Você criou um executável, agora é só escrever no terminal:
-
-
-<code>./Jogos_C++_POO</code>
-Se divirta!
-=============================
+    <code>g++ main.cpp Forca.cpp Velha.cpp -o Jogos_C++_POO</code><br>
+Você criou um executável, agora é só escrever no terminal: <br>
+ <code>./Jogos_C++_POO</code>
+<br>Se divirta!<br>
+=============================<br>
 Lembre-se que você precisa ter o g++, o compilador para funcionar
 </body>
 </html>
