@@ -3,11 +3,14 @@
 
 #include "Forca.h"
 #include "Velha.h"
+#include "Senha.h"
+
 #include <ctime>
 using namespace std;
 
 int main()
 {
+    /*Forca*/
     Forca F;
     string p1, p2, letras;
     char L;
@@ -15,25 +18,29 @@ int main()
     int op, jogadas;
     srand(time(NULL));
 
-    /*Universais*/
-
+    /*Velha*/
     Velha V;
     char v[3][3];
     bool j1, j2;
     int i, j;
 
+    Senha S;
+    int acertos = 0;
     do
     {
 
         // system("clear");
         cout << "(1) Jogo da Forca" << endl;
         cout << "(2) Jogo da Velha" << endl;
-        cout << "(3) Sair" << endl;
+        cout << "(3) Jogo da Velha" << endl;
+        cout << "(4) Sair" << endl;
         cin >> op;
 
         switch (op)
         {
+        /*Forca*/
         case 1:
+        
             // limpando as varíáveis, para recomençar o jogo, não dê erro
             p1 = p2 = letras = "";
             jogadas = 0;
@@ -72,7 +79,7 @@ int main()
                 cout << "---------------------------" << endl;
             }
             break;
-
+        /*Velha*/
         case 2:
 
             for (int i = 0; i < 3; i++)
@@ -130,7 +137,49 @@ int main()
             } while (jogadas < 9 && !j1 && !j2);
             cout << "---------------------------" << endl;
             break;
+
+        /*Senha*/
         case 3:
+            system("clear");
+            S.GerarSenha();
+            jogadas = 1; //para o jogo não começar com jogada 0
+            acertou = false;
+            do{
+                for(i=0;i<10;i++){
+                    for(j=0;j<4;j++){
+                        cout<<S.palpites[i][j];
+                    }
+                    cout<<endl;
+            }
+            system("clear");
+                cout<<"informe seu palpite: \n v-vermelho \n a - azul \n p-preto \n b - branco";
+                cout<<"Jogada"<<jogadas<<endl;
+                for(i=0;i<4;i++){
+                    cin>>S.palpite[i];
+                }
+                for(i=0;i<4;i++){
+                        S.palpites[jogadas-1][i]= S.palpite[i];
+                }
+                
+                acertos =  S.verificaAcertos();
+                if(acertos==4){
+                    acertou=true;
+                }else{jogadas++;
+                cout<<acertos<<"acertos"<<endl;}
+            }while(jogadas<=10 && !acertou);
+
+            if(acertou){
+                cout<<"parabéns";
+            }else{
+                cout<<"burro! A senha era";
+            for(i=0;i<4;i++){
+                cout<<S.senha[i]<<" ";
+            }
+             }
+
+            break;
+            
+        case 4:
             cout << "Obrigado por testar!" << std::endl;
             break;
         default:
