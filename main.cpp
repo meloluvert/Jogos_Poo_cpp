@@ -32,7 +32,7 @@ int main()
         // system("clear");
         cout << "(1) Jogo da Forca" << endl;
         cout << "(2) Jogo da Velha" << endl;
-        cout << "(3) Jogo da Velha" << endl;
+        cout << "(3) Jogo da Senha" << endl;
         cout << "(4) Sair" << endl;
         cin >> op;
 
@@ -140,28 +140,19 @@ int main()
 
         /*Senha*/
         case 3:
-            system("clear");
             S.GerarSenha();
             jogadas = 1; //para o jogo não começar com jogada 0
             acertou = false;
             do{
-                for(i=0;i<10;i++){
-                    for(j=0;j<4;j++){
-                        cout<<S.palpites[i][j];
-                    }
-                    cout<<endl;
-            }
-            system("clear");
-                cout<<"informe seu palpite: \n v-vermelho \n a - azul \n p-preto \n b - branco";
-                cout<<"Jogada"<<jogadas<<endl;
-                for(i=0;i<4;i++){
-                    cin>>S.palpite[i];
-                }
+                
+                S.mostraJogo(jogadas);
+                
                 for(i=0;i<4;i++){
                         S.palpites[jogadas-1][i]= S.palpite[i];
                 }
                 
-                acertos =  S.verificaAcertos();
+                S.sequenciaDeAcertos[jogadas-1] = acertos =  S.verificaAcertos();
+                
                 if(acertos==4){
                     acertou=true;
                 }else{jogadas++;
@@ -169,9 +160,9 @@ int main()
             }while(jogadas<=10 && !acertou);
 
             if(acertou){
-                cout<<"parabéns";
+                cout<<"Parabéns! Obrigado por jogar!";
             }else{
-                cout<<"burro! A senha era";
+                cout<<"Não conseguiu! A senha era:";
             for(i=0;i<4;i++){
                 cout<<S.senha[i]<<" ";
             }
@@ -183,7 +174,7 @@ int main()
             cout << "Obrigado por testar!" << std::endl;
             break;
         default:
-            cout << "opção inválida";
+            cout << "Opção inválida";
             break;
         } // vai pausar o jogo até continuarmos
     } while (op != 3);
