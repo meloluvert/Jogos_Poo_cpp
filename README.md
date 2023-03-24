@@ -22,7 +22,7 @@ Como Jogar?
     <li>Use este Comando:</li>
   
 </ol>
-    <code>g++ main.cpp Forca.cpp Velha.cpp -o Jogos_C++_POO</code><br>
+    <code> g++ -o Jogos_C++_POO Forca.* Velha.* Senha.* main</code><br>
 Você criou um executável, agora é só escrever no terminal: <br>
  <code>./Jogos_C++_POO</code>
 <br>Se divirta!<br>
