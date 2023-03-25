@@ -12,6 +12,7 @@ Nesse repositório, há 2 jogos em POO, no C++: <br>
 <ul>
 <li>Jogo da Velha</li>
 <li> Jogo da Forca </li>
+<li> Jogo da Senha </li>
 </ul>
 Como Jogar? 
 
