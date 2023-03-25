@@ -1,5 +1,6 @@
 
-// g++ main.cpp Forca.cpp Velha.cpp -o Jogos_C++_POO
+//   g++ -o Jogos_C++_POO Forca.* Velha.* Senha.* main.cpp
+
 
 #include "Forca.h"
 #include "Velha.h"
@@ -20,7 +21,6 @@ int main()
 
     /*Velha*/
     Velha V;
-    char v[3][3];
     bool j1, j2;
     int i, j;
 
@@ -71,6 +71,7 @@ int main()
             } while (jogadas < 6 && !acertou);
             if (acertou)
             {
+                F.mostra(p2, letras, jogadas);
                 cout << "Parabéns"<<endl;
             }
             else
@@ -86,31 +87,29 @@ int main()
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    v[i][j] = '\0';
+                    V.v[i][j] = '\0';
                 }
             }
             jogadas = 0; // zera as jogadas
             j1 = j2 = false;
             do
             {
-                V.desenhaJogo(v, jogadas);
+                V.desenhaJogo(jogadas);
                 /*PEDE AS POSIÇÕES*/
 
                 // posicoes = vetor linha, coluna
                 // J1
-                int *posicoes = V.pedeXy('X', v);
-                v[posicoes[0] - 1][posicoes[1] - 1] = 'X';
+                V.pedeXy('X');
                 jogadas++;
-                if (V.verificaSeGanhou(v, 'X', i - 1, j - 1))
+                if (V.verificaSeGanhou('X', i - 1, j - 1))
                 {
-                    V.desenhaJogo(v, jogadas);
+                    V.desenhaJogo(jogadas);
                     cout << "Parabéns J1!" << endl;
                     j1 = true;
                     break;
                 }
-                // Excluindo o vetor alocado dinamicamente para evitar vazamento de memória
-                delete[] posicoes;
-                V.desenhaJogo(v, jogadas);
+
+                V.desenhaJogo(jogadas);
                 if (V.verificaEmpate(jogadas, j1, j2))
                 {
                     break;
@@ -118,17 +117,15 @@ int main()
 
                 // J2
 
-                posicoes = V.pedeXy('O', v);
-                v[posicoes[0] - 1][posicoes[1] - 1] = 'O';
+                V.pedeXy('O');
                 jogadas++;
-                if (V.verificaSeGanhou(v, 'O', i - 1, j - 1))
+                if (V.verificaSeGanhou('O', i - 1, j - 1))
                 {
-                    V.desenhaJogo(v, jogadas);
+                    V.desenhaJogo(jogadas);
                     cout << "Parabéns J2!" << endl;
                     j1 = true;
                     break;
                 }
-                delete[] posicoes;
 
                 if (V.verificaEmpate(jogadas, j1, j2))
                 {
@@ -160,7 +157,7 @@ int main()
             }while(jogadas<=10 && !acertou);
 
             if(acertou){
-                cout<<"Parabéns! Obrigado por jogar!";
+                cout<<"Parabéns! Obrigado por jogar!"<<endl;
             }else{
                 cout<<"Não conseguiu! A senha era:";
             for(i=0;i<4;i++){
@@ -177,6 +174,6 @@ int main()
             cout << "Opção inválida";
             break;
         } // vai pausar o jogo até continuarmos
-    } while (op != 3);
+    } while (op != 4);
     return 0;
 }

@@ -1,6 +1,6 @@
 #include "Velha.h"
 
-void Velha::desenhaJogo(char (*v)[3], int jogadas)
+void Velha::desenhaJogo(int jogadas)
 {
     system("clear||cls");
     std::cout << "    1  2  3" << std::endl;
@@ -28,7 +28,8 @@ void Velha::desenhaJogo(char (*v)[3], int jogadas)
     std::cout << std::endl
               << "Jogadas restantes:" << 9 - jogadas << std::endl;
 }
-bool Velha::verificaSeGanhou(char (*v)[3], char jogador, int l, int c)
+
+bool Velha::verificaSeGanhou(char jogador, int l, int c)
 {
 
     bool linha = (v[l][0] == jogador && v[l][1] == jogador && v[l][2] == jogador);
@@ -44,7 +45,8 @@ bool Velha::verificaSeGanhou(char (*v)[3], char jogador, int l, int c)
     // Se não houver vencedor, retornar false
     return false;
 }
-int *Velha::pedeXy(char z, char (*v)[3])
+
+void Velha::pedeXy(char z)
 {
     int i, j;
     int *posicoes = new int[2];
@@ -64,9 +66,7 @@ int *Velha::pedeXy(char z, char (*v)[3])
         std::cin >> j;
     } while (v[i - 1][j - 1] != '\0');
 
-    posicoes[0] = i;
-    posicoes[1] = j;
-    return posicoes;
+    v[i - 1][j - 1] = (z=='X') ? 'X':'O';
 }
 
 bool Velha::verificaEmpate(int j, bool j1, bool j2)
